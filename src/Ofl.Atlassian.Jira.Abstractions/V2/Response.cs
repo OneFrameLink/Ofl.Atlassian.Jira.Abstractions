@@ -2,6 +2,6 @@
 {
     public abstract class Response
     {
-        public string Expand { get; set; }
+        public string? Expand { get; set; }
     }
 }

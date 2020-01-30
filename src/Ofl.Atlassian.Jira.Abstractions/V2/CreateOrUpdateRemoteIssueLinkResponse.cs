@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
 
-        public string Self { get; set; }
+        public string? Self { get; set; }
     }
 }

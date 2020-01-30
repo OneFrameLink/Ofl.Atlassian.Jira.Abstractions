@@ -3,11 +3,11 @@
     public class Icon
     {
         // ReSharper disable InconsistentNaming
-        public string Url16x16 { get; set; }
+        public string? Url16x16 { get; set; }
         // ReSharper restore InconsistentNaming
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
-        public string Link { get; set; }
+        public string? Link { get; set; }
     }
 }

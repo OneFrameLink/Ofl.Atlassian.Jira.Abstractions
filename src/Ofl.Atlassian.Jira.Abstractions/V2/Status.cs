@@ -4,6 +4,6 @@
     {
         public bool Resolved { get; set; }
 
-        public Icon Icon { get; set; }
+        public Icon? Icon { get; set; }
     }
 }
