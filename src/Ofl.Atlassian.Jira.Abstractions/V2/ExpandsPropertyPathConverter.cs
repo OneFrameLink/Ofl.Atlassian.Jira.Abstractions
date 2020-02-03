@@ -41,8 +41,7 @@ namespace Ofl.Atlassian.Jira.V2
             }
 
             // Gets the property name.
-            string GetPropertyName(PropertyInfo propertyInfo)
-            {
+            static string GetPropertyName(PropertyInfo propertyInfo) {
                 // Get the attribute; if it exists, use that.
                 JsonPropertyNameAttribute attribute = propertyInfo
                     .GetCustomAttribute<JsonPropertyNameAttribute>();
@@ -51,10 +50,9 @@ namespace Ofl.Atlassian.Jira.V2
                 if (attribute != null)
                     return attribute.Name;
 
-                // Use the naming policy, if there is
-                // one, otherwise, return the name.
-                return options.PropertyNamingPolicy?.ConvertName(propertyInfo.Name)
-                    ?? propertyInfo.Name;
+                // Camel case.
+                return JsonNamingPolicy.CamelCase
+                    .ConvertName(propertyInfo.Name);
             }
 
             // The string builder.

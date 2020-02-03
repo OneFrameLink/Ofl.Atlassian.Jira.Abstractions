@@ -1,7 +1,27 @@
-﻿namespace Ofl.Atlassian.Jira.V2
+﻿using System;
+
+namespace Ofl.Atlassian.Jira.V2
 {
     public class GetWatchersRequest
     {
-        public string IssueIdOrKey { get; set; }
+        #region Constructor
+
+        public GetWatchersRequest(
+            string issueIdOrKey
+        )
+        {
+            // Validate parameters.
+            IssueIdOrKey = string.IsNullOrWhiteSpace(issueIdOrKey)
+                ? throw new ArgumentNullException(nameof(issueIdOrKey))
+                : issueIdOrKey;
+        }
+
+        #endregion
+
+        #region Instance, read-only state
+
+        public string IssueIdOrKey { get; }
+
+        #endregion
     }
 }

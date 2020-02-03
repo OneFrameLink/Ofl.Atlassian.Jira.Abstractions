@@ -1,8 +1,33 @@
-﻿namespace Ofl.Atlassian.Jira.V2
+﻿using System;
+
+namespace Ofl.Atlassian.Jira.V2
 {
     public class RemoveWatcherRequest
     {
-        public string IssueIdOrKey { get; set; }
-        public string Username { get; set; }
+        #region Constructor
+
+        public RemoveWatcherRequest(
+            string issueIdOrKey,
+            string username
+        )
+        {
+            // Validate parameters.
+            IssueIdOrKey = string.IsNullOrWhiteSpace(issueIdOrKey)
+                ? throw new ArgumentNullException(nameof(issueIdOrKey))
+                : issueIdOrKey;
+            Username = string.IsNullOrWhiteSpace(username)
+                ? throw new ArgumentNullException(nameof(username))
+                : username;
+        }
+
+        #endregion
+
+        #region Instance, read-only state
+
+        public string IssueIdOrKey { get; }
+
+        public string Username { get; }
+
+        #endregion
     }
 }
